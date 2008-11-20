@@ -15,7 +15,8 @@
     {                                                                                                                      \
         if (!(cond))                                                                                                       \
         {                                                                                                                  \
-            printf("Ass failed: %s, file: %s,\nline: %d, function %s:\n", #cond, __FILE__, __LINE__, __PRETTY_FUNCTION__); \
+            printf("Ass failed: %s, file: %s,\n"                                                                           \
+                   "line: %d, function %s:\n", #cond, __FILE__, __LINE__, __PRETTY_FUNCTION__);                            \
             abort();                                                                                                       \
         }                                                                                                                  \
     }
@@ -130,7 +131,7 @@ bool SpeedStrSort(char** text, int first, int second, bool (*cmp)(const void*, c
 bool ReverseComparatorStr(const void* str1, const void* str2);
 
 /**
-    \brief ReverseStr
+    \brief ReverseStrPointer
     \author andreevmaxi
 	\version 1.0
 	\date september 2019 year
@@ -142,7 +143,7 @@ bool ReverseComparatorStr(const void* str1, const void* str2);
     \param[in] StrNow index of putting string
 */
 
-bool ReverseStr(char* str, char** rtext, int StrNow);
+bool ReverseStrPointer(char* str, char** rtext, int StrNow);
 
 /**
     \brief NormalizeReverseText
@@ -189,9 +190,31 @@ bool OriginalPrint(char* buff, FILE* f, int StrNum);
 
 bool ChangeEnterOnEndOfString(char* BuffTmp, int* StrNum, int CharSize);
 
+/**
+    \brief DivideInQSort
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that used in SppeeeedStrSort
+    \return right ending of sorting array
+    \param[in,out] text pointer on array of pointers of chars
+    \param[in] first number of begin index of sorting array
+    \param[in] second number of end index of sorting array
+    \param[in] cmp pointer on comparator function
+*/
+
+int DivideInQSort(char** text, int first, int second, bool (*cmp)(const void*, const void*));
+
 int main(int argc, char **argv)
 {
-    FILE* f = fopen("hamlet.txt", "rb");
+    char  FileReadName[50] = {};
+    char FileWriteName[50] = {};
+
+    scanf("%s",  &FileReadName);
+    scanf("%s", &FileWriteName);
+
+    FILE* f = fopen(FileReadName, "rb");
 
     int CharSize = FileSizeWin(f);
 
@@ -214,13 +237,13 @@ int main(int argc, char **argv)
 
     fclose(f);
 
-    SpeedStrSort(text, 0, StrNum-1, ComparatorStr);
+    SpeedStrSort( text, 0, StrNum-1, ComparatorStr);
     SpeedStrSort(rtext, 0, StrNum-1, ReverseComparatorStr);
-    f = fopen("dictionary_of_english_life.txt", "w+");
+    f = fopen(FileWriteName, "w+");
 
     fprintf(f,"Dictionary of english life:\n");
     PrintText(text, f, StrNum);
-    fprintf(f,"\n\nRap Dictionary:\n");
+    fprintf(f,"\n\nReverse Array Pointers (RAP) Dictionary:\n");
     NormalizeReverseText(rtext, buffer, StrNum);
     PrintText(rtext, f, StrNum);
     fprintf(f,"\n\nOriginal:\n");
@@ -238,33 +261,19 @@ bool SpeedStrSort(char** text, int first, int second, bool (*cmp)(const void*, c
     ASSERT(cmp != NULL);
 
     int NowStr = second;
-    char* Tmp;
     int i = first;
+    int  left = 0;
+    int right = 0;
 
-    while (i < NowStr)
+    if(first < second)
     {
-        if( cmp(text[NowStr], text[i]) )
-        {
-            Tmp = text[NowStr];
-            text[NowStr] = text[(NowStr - 1)];
-            text[(NowStr - 1)] = Tmp;
-            NowStr = NowStr - 1;
-            if(i != (NowStr))
-            {
-                Tmp = text[i];
-                text[i] = text[(NowStr + 1)];
-                text[(NowStr + 1)] = Tmp;
-            }
-        } else
-        {
-            ++i;
-        }
+        right = DivideInQSort(text, first, second, cmp) + 1;
+        left  = right - 1;
+
+        SpeedStrSort(text, first, left, cmp);
+        SpeedStrSort(text, right, second, cmp);
     }
-    if (first < second)
-    {
-        SpeedStrSort(text, first, (NowStr - 1), cmp);
-        SpeedStrSort(text, (NowStr + 1), second, cmp);
-    }
+    return 1;
 }
 
 bool FileRead(char* buff, FILE* fp)
@@ -273,9 +282,8 @@ bool FileRead(char* buff, FILE* fp)
     ASSERT (fp != NULL);
 
     char* LastChar = buff;
-    char tmp = {};
-    char prev = {};
-    prev = '\n';
+    char tmp  = '\0';
+    char prev = '\n';
 
     while ( (tmp = getc (fp)) != EOF )
     {
@@ -293,7 +301,7 @@ bool FileRead(char* buff, FILE* fp)
     if(*(LastChar - 1) == '\0')
     {
         *(LastChar - 1) = '\n';
-        *(LastChar) = 'm';
+        *(LastChar) = *"maxim the great";
     }  else if(*(LastChar - 1) != '\n')
     {
         *(LastChar) = '\n';
@@ -314,16 +322,16 @@ bool StrDivide(char* buff, char** text, char** rtext, int* CharNum, int* StrNum)
         if( *(buff + i) == '\0' && *StrNum > NowStr)
         {
             text[NowStr] = buff + i + 1;
-            ReverseStr((char*)(buff + i - 1), rtext, (NowStr - 1) );
+            ReverseStrPointer((char*)(buff + i - 1), rtext, (NowStr - 1) );
             ++NowStr;
         }
     }
     if (*(buff + *CharNum - 1) != '\0')
     {
-        ReverseStr((char*)(buff + *CharNum - 1), rtext, (*StrNum - 1) );
+        ReverseStrPointer((char*)(buff + *CharNum - 1), rtext, (*StrNum - 1) );
     } else
     {
-        ReverseStr((char*)(buff + *CharNum - 2), rtext, (*StrNum - 1) );
+        ReverseStrPointer((char*)(buff + *CharNum - 2), rtext, (*StrNum - 1) );
     }
 
     return 1;
@@ -346,7 +354,8 @@ bool ComparatorStr(const void* str1, const void* str2)
         ++NowPos2;
     }
 
-    while( ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) ) && (*((char*)str1 + NowPos1 + 1) != '\0' && *((char*)str2 + NowPos2 + 1) != '\0') )
+    while( ( *((char*)str1 + NowPos1)     ==         *((char*)str2 + NowPos2) ) &&
+           ( *((char*)str1 + NowPos1 + 1) != '\0' && *((char*)str2 + NowPos2 + 1) != '\0') )
     {
         while(*((char*)str1 + NowPos1 + 1) == ' ')
         {
@@ -389,18 +398,13 @@ bool PrintText(char** text, FILE* f, int NumStr)
 
     while (NowStr < NumStr)
     {
-        tmp = 0;
 
-        while (*(text[NowStr] + tmp) != '\0')
-        {
-            fprintf(f,"%c", *(text[NowStr] + tmp));
-            ++tmp;
-        }
+        fprintf(f,"%s", (text[NowStr]));
         ++NowStr;
         fprintf(f,"\n");
     }
 
-    return 0;
+    return 1;
 }
 
 bool ReverseComparatorStr(const void* str1, const void* str2)
@@ -456,14 +460,14 @@ bool ReverseComparatorStr(const void* str1, const void* str2)
     return *((char*)str1 - NowPos1) < *((char*)str2 - NowPos2);
 }
 
-bool ReverseStr(char* str, char** rtext, int StrNow)
+bool ReverseStrPointer(char* str, char** rtext, int StrNow)
 {
     ASSERT(str != NULL);
     ASSERT(rtext != NULL);
 
     rtext[StrNow] = str;
 
-    return 0;
+    return 1;
 }
 
 bool NormalizeReverseText(char** text, char* first, int StrNum)
@@ -478,7 +482,7 @@ bool NormalizeReverseText(char** text, char* first, int StrNum)
             --text[i];
         }
     }
-    return 0;
+    return 1;
 }
 
 bool OriginalPrint(char* buff, FILE* f, int StrNum)
@@ -500,7 +504,7 @@ bool OriginalPrint(char* buff, FILE* f, int StrNum)
             ++tmp;
         }
     }
-    return 0;
+    return 1;
 }
 
 int FileSizeWin(FILE* f)
@@ -543,5 +547,43 @@ bool ChangeEnterOnEndOfString(char* BuffTmp, int* StrNum, int CharSize)
             ++(*StrNum);
         }
         ++BuffTmp;
+    }
+
+    return 1;
+}
+
+int DivideInQSort(char** text, int first, int second, bool (*cmp)(const void*, const void*))
+{
+    ASSERT(text != NULL);
+    ASSERT(cmp != NULL);
+
+    char* SupportStr = text[ (first + second) / 2 ];
+    char* tmp = {};
+
+    --first;
+    ++second;
+
+    while (1)
+    {
+        ++first;
+        while(cmp(text[first], SupportStr))
+        {
+            ++first;
+        }
+
+        --second;
+        while(cmp(SupportStr, text[second]))
+        {
+            --second;
+        }
+
+        if(first >= second)
+        {
+            return second;
+        }
+
+        tmp = text[first];
+        text[first] = text[second];
+        text[second] = tmp;
     }
 }

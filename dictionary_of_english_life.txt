@@ -4,7 +4,7 @@ bbb
 ccc
 
 
-Rap Dictionary:
+Reverse Array Pointers (RAP) Dictionary:
 aaa
 bbb
 ccc

@@ -4,206 +4,172 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>13-09-2019 at 19:36.56</u><br />
-Build ended on: <u>13-09-2019 at 19:36.59</u><p />
+Build started on: <u>21-11-2008 at 00:19.50</u><br />
+Build ended on: <u>21-11-2008 at 00:19.52</u><p />
 <b>-------------- Build: Debug in onegin_hamlet (compiler: GNU GCC Compiler - Strict + Fast (SINGLE FILES ONLY))---------------</b><br />
-mingw32-g++.exe "C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp" -o bin\Debug\onegin_hamlet.exe -mconsole  -Wall -fexceptions  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
-In file included from C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:12:0:<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:388:7: warning: extra tokens at end of #endif directive [enabled by default]</font><br />
- #endif;<br />
-       ^<br />
-In file included from C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:12:0:<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h: In function 'int Tmain(char*, char*)':<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:31:9: warning: no previous declaration for 'int Tmain(char*, char*)' [-Wmissing-declarations]</font><br />
-     int Tmain(char FileReadName[50], char FileWriteName[50])<br />
-         ^<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h: In function 'bool FileRead(char*, FILE*)':<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:120:32: warning: conversion to 'char' from 'int' may alter its value [-Wconversion]</font><br />
-         while ( (tmp = getc (fp)) != EOF )<br />
-                                ^<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h: In function 'bool ComparatorStr(const void*, const void*)':<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:174:23: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         ASSERT((char*)str1 != NULL);<br />
-                       ^<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:7:15: note: in definition of macro 'ASSERT'<br />
-         if (!(cond))                                                                                                       \<br />
-               ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:175:23: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         ASSERT((char*)str2 != NULL);<br />
-                       ^<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:7:15: note: in definition of macro 'ASSERT'<br />
-         if (!(cond))                                                                                                       \<br />
-               ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:180:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while(*((char*)str1 + NowPos1 + 1) == ' ')<br />
-                        ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:184:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while(*((char*)str2 + NowPos2 + 1) == ' ')<br />
-                        ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:189:27: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while( ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) ) &amp;&amp; (*((char*)str1 + NowPos1 + 1) != '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) != '\0') )<br />
-                           ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:189:55: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while( ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) ) &amp;&amp; (*((char*)str1 + NowPos1 + 1) != '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) != '\0') )<br />
-                                                       ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:189:86: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while( ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) ) &amp;&amp; (*((char*)str1 + NowPos1 + 1) != '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) != '\0') )<br />
-                                                                                      ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:189:126: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while( ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) ) &amp;&amp; (*((char*)str1 + NowPos1 + 1) != '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) != '\0') )<br />
-                                                                                                                              ^<br />
-In file included from C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:12:0:<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:191:28: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             while(*((char*)str1 + NowPos1 + 1) == ' ')<br />
-                            ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:195:28: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             while(*((char*)str2 + NowPos2 + 1) == ' ')<br />
-                            ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:203:23: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         if ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) )<br />
-                       ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:203:51: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         if ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) )<br />
-                                                   ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:205:26: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             if (*((char*)str1 + NowPos1 + 1) == '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) == '\0')<br />
-                          ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:205:66: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             if (*((char*)str1 + NowPos1 + 1) == '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) == '\0')<br />
-                                                                  ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:209:26: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             if (*((char*)str1 + NowPos1 + 1) == '\0')<br />
-                          ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:213:26: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             if (*((char*)str2 + NowPos2 + 1) == '\0')<br />
-                          ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:219:25: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         return *((char*)str1 + NowPos1) &lt; *((char*)str2 + NowPos2);<br />
-                         ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:219:52: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         return *((char*)str1 + NowPos1) &lt; *((char*)str2 + NowPos2);<br />
-                                                    ^<br />
-In file included from C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:12:0:<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h: In function 'bool ReverseComparatorStr(const void*, const void*)':<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:248:23: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         ASSERT((char*)str1 != NULL);<br />
-                       ^<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:7:15: note: in definition of macro 'ASSERT'<br />
-         if (!(cond))                                                                                                       \<br />
-               ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:249:23: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         ASSERT((char*)str2 != NULL);<br />
-                       ^<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:7:15: note: in definition of macro 'ASSERT'<br />
-         if (!(cond))                                                                                                       \<br />
-               ^<br />
-In file included from C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:12:0:<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:254:23: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         if(( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ))<br />
-                       ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:254:51: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         if(( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ))<br />
-                                                   ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:256:28: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             while(*((char*)str1 - (NowPos1 + 1) ) == ' ')<br />
-                            ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:260:28: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             while(*((char*)str2 - (NowPos2 + 1) ) == ' ')<br />
-                            ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:266:27: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) &amp;&amp; (*((char*)str1 - (NowPos1 + 1) ) != '\0' &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) != '\0') )<br />
-                           ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:266:55: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) &amp;&amp; (*((char*)str1 - (NowPos1 + 1) ) != '\0' &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) != '\0') )<br />
-                                                       ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:266:86: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) &amp;&amp; (*((char*)str1 - (NowPos1 + 1) ) != '\0' &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) != '\0') )<br />
-                                                                                      ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:266:129: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) &amp;&amp; (*((char*)str1 - (NowPos1 + 1) ) != '\0' &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) != '\0') )<br />
-                                                                                                                                 ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:268:28: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             while(*((char*)str1 - (NowPos1 + 1) ) == ' ')<br />
-                            ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:272:28: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             while(*((char*)str2 - (NowPos2 + 1) ) == ' ')<br />
-                            ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:280:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         if (  *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) )<br />
-                        ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:280:52: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         if (  *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) )<br />
-                                                    ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:282:28: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             if ( (*((char*)str1 - (NowPos1 + 1) ) == '\0') &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) == '\0')<br />
-                            ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:282:72: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             if ( (*((char*)str1 - (NowPos1 + 1) ) == '\0') &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) == '\0')<br />
-                                                                        ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:286:26: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             if (*((char*)str1 - (NowPos1 + 1) ) == '\0')<br />
-                          ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:290:26: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-             if (*((char*)str2 - (NowPos2 + 1) ) == '\0')<br />
-                          ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:296:25: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         return *((char*)str1 - NowPos1) &lt; *((char*)str2 - NowPos2);<br />
-                         ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:296:52: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
-         return *((char*)str1 - NowPos1) &lt; *((char*)str2 - NowPos2);<br />
-                                                    ^<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp: At global scope:<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:34:5: warning: unused parameter 'argc' [-Wunused-parameter]</font><br />
+mingw32-g++.exe "C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp" -o bin\Debug\OneginGood.exe -mconsole  -Wall -fexceptions  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC -D__slowpoke<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp: In function 'int main(int, char**)':<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:214:31: warning: format '%s' expects argument of type 'char*', but argument 2 has type 'char (*)[50]' [-Wformat=]</font><br />
+     scanf("%s",  &amp;FileReadName);<br />
+                               ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:215:31: warning: format '%s' expects argument of type 'char*', but argument 2 has type 'char (*)[50]' [-Wformat=]</font><br />
+     scanf("%s", &amp;FileWriteName);<br />
+                               ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp: At global scope:<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:209:5: warning: unused parameter 'argc' [-Wunused-parameter]</font><br />
  int main(int argc, char **argv)<br />
      ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:34:5: warning: unused parameter 'argv' [-Wunused-parameter]</font><br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp: In function 'int test(int)':<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:49:36: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]</font><br />
-     Tmain( NowTest, ("FuncAns.txt"));<br />
-                                    ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:65:34: warning: conversion to 'char' from 'int' may alter its value [-Wconversion]</font><br />
-     while ( (tmp1 = getc (FuncAns)) != EOF &amp;&amp; (tmp2 = getc (NiceAns)) != EOF &amp;&amp; IsAnsIsGood )<br />
-                                  ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:65:68: warning: conversion to 'char' from 'int' may alter its value [-Wconversion]</font><br />
-     while ( (tmp1 = getc (FuncAns)) != EOF &amp;&amp; (tmp2 = getc (NiceAns)) != EOF &amp;&amp; IsAnsIsGood )<br />
-                                                                    ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:71:34: warning: conversion to 'char' from 'int' may alter its value [-Wconversion]</font><br />
-             (tmp2 = getc (NiceAns));<br />
-                                  ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:75:34: warning: conversion to 'char' from 'int' may alter its value [-Wconversion]</font><br />
-             (tmp1 = getc (FuncAns));<br />
-                                  ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:101:48: warning: too many arguments for format [-Wformat-extra-args]</font><br />
-         fprintf(Errors, "\n\nTest Text:\n\n", i);<br />
-                                                ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:105:47: warning: too many arguments for format [-Wformat-extra-args]</font><br />
-         fprintf(Errors, "\n\nTest Ans:\n\n", i);<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:209:5: warning: unused parameter 'argv' [-Wunused-parameter]</font><br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp: In function 'bool SpeedStrSort(char**, int, int, bool (*)(const void*, const void*))':<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:263:9: warning: unused variable 'NowStr' [-Wunused-variable]</font><br />
+     int NowStr = second;<br />
+         ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:264:9: warning: unused variable 'i' [-Wunused-variable]</font><br />
+     int i = first;<br />
+         ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp: In function 'bool FileRead(char*, FILE*)':<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:288:28: warning: conversion to 'char' from 'int' may alter its value [-Wconversion]</font><br />
+     while ( (tmp = getc (fp)) != EOF )<br />
+                            ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp: In function 'bool ComparatorStr(const void*, const void*)':<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:342:19: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     ASSERT((char*)str1 != NULL);<br />
+                   ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:16:15: note: in definition of macro 'ASSERT'<br />
+         if (!(cond))                                                                                                       \<br />
+               ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:343:19: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     ASSERT((char*)str2 != NULL);<br />
+                   ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:16:15: note: in definition of macro 'ASSERT'<br />
+         if (!(cond))                                                                                                       \<br />
+               ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:348:20: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     while(*((char*)str1 + NowPos1 + 1) == ' ')<br />
+                    ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:352:20: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     while(*((char*)str2 + NowPos2 + 1) == ' ')<br />
+                    ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:357:23: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     while( ( *((char*)str1 + NowPos1)     ==         *((char*)str2 + NowPos2) ) &amp;&amp;<br />
+                       ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:357:63: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     while( ( *((char*)str1 + NowPos1)     ==         *((char*)str2 + NowPos2) ) &amp;&amp;<br />
+                                                               ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:358:23: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+            ( *((char*)str1 + NowPos1 + 1) != '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) != '\0') )<br />
+                       ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:358:63: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+            ( *((char*)str1 + NowPos1 + 1) != '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) != '\0') )<br />
+                                                               ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:360:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         while(*((char*)str1 + NowPos1 + 1) == ' ')<br />
+                        ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:364:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         while(*((char*)str2 + NowPos2 + 1) == ' ')<br />
+                        ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:372:19: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     if ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) )<br />
+                   ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:372:47: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     if ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) )<br />
                                                ^<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:112:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:374:22: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         if (*((char*)str1 + NowPos1 + 1) == '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) == '\0')<br />
+                      ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:374:62: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         if (*((char*)str1 + NowPos1 + 1) == '\0' &amp;&amp; *((char*)str2 + NowPos2 + 1) == '\0')<br />
+                                                              ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:378:22: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         if (*((char*)str1 + NowPos1 + 1) == '\0')<br />
+                      ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:382:22: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         if (*((char*)str2 + NowPos2 + 1) == '\0')<br />
+                      ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:388:21: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     return *((char*)str1 + NowPos1) &lt; *((char*)str2 + NowPos2);<br />
+                     ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:388:48: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     return *((char*)str1 + NowPos1) &lt; *((char*)str2 + NowPos2);<br />
+                                                ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp: In function 'bool PrintText(char**, FILE*, int)':<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:396:9: warning: unused variable 'tmp' [-Wunused-variable]</font><br />
+     int tmp = 0;<br />
+         ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp: In function 'bool ReverseComparatorStr(const void*, const void*)':<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:412:19: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     ASSERT((char*)str1 != NULL);<br />
+                   ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:16:15: note: in definition of macro 'ASSERT'<br />
+         if (!(cond))                                                                                                       \<br />
+               ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:413:19: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     ASSERT((char*)str2 != NULL);<br />
+                   ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:16:15: note: in definition of macro 'ASSERT'<br />
+         if (!(cond))                                                                                                       \<br />
+               ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:418:19: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     if(( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ))<br />
+                   ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:418:47: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     if(( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ))<br />
+                                               ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:420:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         while(*((char*)str1 - (NowPos1 + 1) ) == ' ')<br />
+                        ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:424:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         while(*((char*)str2 - (NowPos2 + 1) ) == ' ')<br />
+                        ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:430:23: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) &amp;&amp; (*((char*)str1 - (NowPos1 + 1) ) != '\0' &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) != '\0') )<br />
+                       ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:430:51: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) &amp;&amp; (*((char*)str1 - (NowPos1 + 1) ) != '\0' &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) != '\0') )<br />
+                                                   ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:430:82: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) &amp;&amp; (*((char*)str1 - (NowPos1 + 1) ) != '\0' &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) != '\0') )<br />
+                                                                                  ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:430:125: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) &amp;&amp; (*((char*)str1 - (NowPos1 + 1) ) != '\0' &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) != '\0') )<br />
+                                                                                                                             ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:432:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         while(*((char*)str1 - (NowPos1 + 1) ) == ' ')<br />
+                        ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:436:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         while(*((char*)str2 - (NowPos2 + 1) ) == ' ')<br />
+                        ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:444:20: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     if (  *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) )<br />
+                    ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:444:48: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     if (  *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) )<br />
+                                                ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:446:24: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         if ( (*((char*)str1 - (NowPos1 + 1) ) == '\0') &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) == '\0')<br />
+                        ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:446:68: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         if ( (*((char*)str1 - (NowPos1 + 1) ) == '\0') &amp;&amp; *((char*)str2 - (NowPos2 + 1) ) == '\0')<br />
+                                                                    ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:450:22: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         if (*((char*)str1 - (NowPos1 + 1) ) == '\0')<br />
+                      ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:454:22: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+         if (*((char*)str2 - (NowPos2 + 1) ) == '\0')<br />
+                      ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:460:21: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     return *((char*)str1 - NowPos1) &lt; *((char*)str2 - NowPos2);<br />
+                     ^<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:460:48: warning: cast from type 'const void*' to type 'char*' casts away qualifiers [-Wcast-qual]</font><br />
+     return *((char*)str1 - NowPos1) &lt; *((char*)str2 - NowPos2);<br />
+                                                ^<br />
+C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp: In function 'int main(int, char**)':<br />
+<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginGood\main.cpp:256:1: warning: stack usage might be unbounded [-Wstack-usage=]</font><br />
  }<br />
  ^<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp: In function 'bool PrintError(FILE*, FILE*)':<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:120:28: warning: conversion to 'char' from 'int' may alter its value [-Wconversion]</font><br />
-     while ( (tmp = getc (fr)) != EOF)<br />
-                            ^<br />
-In file included from C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:12:0:<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h: In function 'bool SpeedStrSort(char**, int, int, bool (*)(const void*, const void*))':<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:108:5: warning: control reaches end of non-void function [-Wreturn-type]</font><br />
-     }<br />
-     ^<br />
-In file included from C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:12:0:<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h: In function 'bool ChangeEnterOnEndOfString(char*, int*, int)':<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:387:5: warning: control reaches end of non-void function [-Wreturn-type]</font><br />
-     }<br />
-     ^<br />
-In file included from C:\Users\Maksim\Documents\GitHub\OneginTester\main.cpp:12:0:<br />
-C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h: In function 'int Tmain(char*, char*)':<br />
-<font color="#0000ff">C:\Users\Maksim\Documents\GitHub\OneginTester\OneginLib.h:73:5: warning: stack usage might be unbounded [-Wstack-usage=]</font><br />
-     }<br />
-     ^<br />
-Output size is 303,89 KB<br />
-<font color="#0000ff">Process terminated with status 0 (0 minutes, 3 seconds)</font><br />
-<font color="#0000ff">0 errors, 55 warnings (0 minutes, 3 seconds)</font><br />
+Output size is 302,01 KB<br />
+<font color="#0000ff">Process terminated with status 0 (0 minutes, 2 seconds)</font><br />
+<font color="#0000ff">0 errors, 47 warnings (0 minutes, 2 seconds)</font><br />
 </tt>
 </body>
 </html>
