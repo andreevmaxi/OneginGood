@@ -1,13 +1,12 @@
 #include <cstdio>
 #include <cstdlib>
-#include <algorithm>
 
 #ifdef _DEBUG
     #define ASSERT( cond )                                                                                                 \
     {                                                                                                                      \
         if (!(cond))                                                                                                       \
         {                                                                                                                  \
-            printf("Ass failed: %s, file: %s,\nline: %s, function%s:\n", #cond, __FILE__, __LINE__, __PRETTY_FUNCTION__);  \
+            printf("Ass failed: %s, file: %s,\nline: %d, function %s:\n", #cond, __FILE__, __LINE__, __PRETTY_FUNCTION__); \
             abort();                                                                                                       \
         }                                                                                                                  \
     }
@@ -38,14 +37,15 @@ bool NormalizeReverseText(char** text, char* first, int StrNum);
 
 bool OriginalPrint(char* buff, FILE* f, int StrNum);
 
-int main()
+int main(int argc, char **argv)
 {
-    FILE *f = fopen("hamlet.txt", "rb");
+    FILE* f = fopen("hamlet.txt", "rb");
 
     int CharSize = FileSizeWin(f);
 
     char* buffer = (char*)calloc ( (CharSize + 2), sizeof(char));
     ASSERT (buffer != NULL);
+
     *buffer = '\0';
     ++buffer;
 
