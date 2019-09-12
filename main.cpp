@@ -1,11 +1,28 @@
 #include <cstdio>
-#include <cassert>
 #include <cstdlib>
 #include <algorithm>
 
+#ifdef _DEBUG
+    #define ASSERT( cond )                                                                                                 \
+    {                                                                                                                      \
+        if (!(cond))                                                                                                       \
+        {                                                                                                                  \
+            printf("Ass failed: %s, file: %s,\nline: %s, function%s:\n", #cond, __FILE__, __LINE__, __PRETTY_FUNCTION__);  \
+            abort();                                                                                                       \
+        }                                                                                                                  \
+    }
+
+    #define DPRINT printf
+#else
+    #define ASSERT( cond ) ;
+    #define DPRINT if(0) printf
+#endif
+
+int FileSizeWin(FILE* f);
+
 bool FileRead(char* buff, FILE* fp);
 
-bool StrDivide(char* buff, char* text[], int* CharNum, int StrNum);
+bool StrDivide(char* buff, char** text, char** rtext, int* CharNum, int StrNum);
 
 bool ComparatorStr(const void* str1, const void* str2);
 
@@ -15,23 +32,20 @@ bool SpeedStrSort(char** text, int first, int second, bool (*cmp)(const void*, c
 
 bool ReverseComparatorStr(const void* str1, const void* str2);
 
-bool ReverseStr(char* text[], char* rtext[], int StrNum, int CharNum);
+bool ReverseStr(char* str, char** rtext, int StrNow);
 
-bool NormalizeReverseText(char* text[], char* first, int StrNum);
+bool NormalizeReverseText(char** text, char* first, int StrNum);
 
 bool OriginalPrint(char* buff, FILE* f, int StrNum);
 
 int main()
 {
-    int CharSize = 0;
+    FILE *f = fopen("hamlet.txt", "rb");
 
-    FILE *f = fopen("hamlet.txt", "r");
-    fseek(f, 0L, SEEK_END);
-    CharSize = ftell(f);
-    rewind(f);
+    int CharSize = FileSizeWin(f);
 
     char* buffer = (char*)calloc ( (CharSize + 1), sizeof(char));
-    assert (buffer != NULL);
+    ASSERT (buffer != NULL);
 
     FileRead(buffer, f);
 
@@ -48,18 +62,18 @@ int main()
         ++BuffTmp;
     }
 
+    ASSERT(*buffer != '\0');
+
     char* text[StrNum];
     char* rtext[StrNum];
 
-    StrDivide(buffer, text, &CharSize, StrNum);
-
-    ReverseStr(text, rtext, StrNum, CharSize);
+    StrDivide(buffer, text, rtext, &CharSize, StrNum);
 
     fclose(f);
 
     SpeedStrSort(text, 0, StrNum-1, ComparatorStr);
     SpeedStrSort(rtext, 0, StrNum-1, ReverseComparatorStr);
-    f = fopen("dictionary_of_english_life.txt", "w+");
+    f = fopen("dictionary_of_english_life.txt", "w");
 
     fprintf(f,"Dictionary of english life:\n");
     PrintText(text, f, StrNum);
@@ -77,8 +91,8 @@ int main()
 
 bool SpeedStrSort(char** text, int first, int second, bool (*cmp)(const void*, const void*))
 {
-    assert(text != NULL);
-    assert(cmp != NULL);
+    ASSERT(text != NULL);
+    ASSERT(cmp != NULL);
 
     int NowStr = second;
     char* Tmp;
@@ -112,23 +126,36 @@ bool SpeedStrSort(char** text, int first, int second, bool (*cmp)(const void*, c
 
 bool FileRead(char* buff, FILE* fp)
 {
-    assert (buff != NULL);
-    assert (fp != NULL);
+    ASSERT (buff != NULL);
+    ASSERT (fp != NULL);
 
     char* LastChar = buff;
+    char tmp = {};
 
-    while ( (*LastChar = getc (fp)) != EOF )
+    while ( (tmp = getc (fp)) != EOF )
     {
-        ++LastChar;
+        if(tmp != '\r')
+        {
+            *LastChar = tmp;
+            ++LastChar;
+        }
     }
-    LastChar = '\0';
+    if(*(LastChar - 1) == '\0')
+    {
+        *(LastChar - 1) = '\n';
+        *(LastChar) = 'm';
+    }  else if(*(LastChar - 1) != '\n')
+    {
+        *(LastChar) = '\n';
+    }
+
     return 1;
 }
 
-bool StrDivide(char* buff, char* text[], int* CharNum, int StrNum)
+bool StrDivide(char* buff, char** text, char** rtext, int* CharNum, int StrNum)
 {
-    assert (buff != NULL);
-    assert (text != NULL);
+    ASSERT (buff != NULL);
+    ASSERT (text != NULL);
 
     int NowStr = 1;
     text[0] = buff;
@@ -137,16 +164,25 @@ bool StrDivide(char* buff, char* text[], int* CharNum, int StrNum)
         if( *(buff + i) == '\0' && StrNum > NowStr)
         {
             text[NowStr] = buff + i + 1;
+            ReverseStr((char*)(buff + i - 1), rtext, (NowStr - 1) );
             ++NowStr;
         }
     }
+    if (*(buff + *CharNum - 1) != '\0')
+    {
+        ReverseStr((char*)(buff + *CharNum - 1), rtext, (StrNum - 1) );
+    } else
+    {
+        ReverseStr((char*)(buff + *CharNum - 2), rtext, (StrNum - 1) );
+    }
+
     return 1;
 }
 
 bool ComparatorStr(const void* str1, const void* str2)
 {
-    assert((char*)str1 != NULL);
-    assert((char*)str2 != NULL);
+    ASSERT((char*)str1 != NULL);
+    ASSERT((char*)str2 != NULL);
 
     int NowPos1 = 0;
     int NowPos2 = 0;
@@ -166,10 +202,10 @@ bool ComparatorStr(const void* str1, const void* str2)
     return *((char*)str1 + NowPos1) < *((char*)str2 + NowPos2);
 }
 
-bool PrintText(char* text[], FILE* f, int NumStr)
+bool PrintText(char** text, FILE* f, int NumStr)
 {
-    assert(text != NULL);
-    assert(f != NULL);
+    ASSERT(text != NULL);
+    ASSERT(f != NULL);
 
     int tmp = 0;
     int NowStr = 0;
@@ -192,8 +228,8 @@ bool PrintText(char* text[], FILE* f, int NumStr)
 
 bool ReverseComparatorStr(const void* str1, const void* str2)
 {
-    assert((char*)str1 != NULL);
-    assert((char*)str2 != NULL);
+    ASSERT((char*)str1 != NULL);
+    ASSERT((char*)str2 != NULL);
 
     int NowPos1 = 0;
     int NowPos2 = 0;
@@ -213,39 +249,35 @@ bool ReverseComparatorStr(const void* str1, const void* str2)
     return *((char*)str1 - NowPos1) < *((char*)str2 - NowPos2);
 }
 
-bool ReverseStr(char* text[], char* rtext[], int StrNum, int CharNum)
+bool ReverseStr(char* str, char** rtext, int StrNow)
 {
-    assert(text != NULL);
-    assert(rtext != NULL);
-    for (int i = 0; i < (StrNum - 1); ++i)
-    {
-        rtext[i] = (char*)((int)text[i + 1] - 2);
-    }
-    rtext[StrNum - 1] = (char*)((int)text[0] + CharNum - 2);
+    ASSERT(str != NULL);
+    ASSERT(rtext != NULL);
+
+    rtext[StrNow] = str;
 
     return 0;
 }
 
-bool NormalizeReverseText(char* text[], char* first, int StrNum)
+bool NormalizeReverseText(char** text, char* first, int StrNum)
 {
-    assert(text != NULL);
-    assert(first != NULL);
+    ASSERT(text != NULL);
+    ASSERT(first != NULL);
 
     for (int i = 0; i < StrNum; ++i)
     {
-        while ( *(text[i] - 2) != '\0' && (text[i] - 1) != first)
+        while ( (text[i]) != first && *(text[i] - 1) != '\0')
         {
             --text[i];
         }
-        --text[i];
     }
     return 0;
 }
 
 bool OriginalPrint(char* buff, FILE* f, int StrNum)
 {
-    assert(f != NULL);
-    assert(buff != NULL);
+    ASSERT(f != NULL);
+    ASSERT(buff != NULL);
 
     char* tmp = buff;
     int i = 0;
@@ -262,4 +294,26 @@ bool OriginalPrint(char* buff, FILE* f, int StrNum)
         }
     }
     return 0;
+}
+
+int FileSizeWin(FILE* f)
+{
+    ASSERT(f != NULL);
+
+    char tmp;
+    int StrSize = 0;
+    tmp = {};
+
+    tmp = (char)fgetc(f);
+    while((tmp != EOF))
+    {
+        if(tmp != '\r')
+        {
+            ++StrSize;
+        }
+        tmp = (char)fgetc(f);
+    }
+    rewind(f);
+
+    return StrSize;
 }
