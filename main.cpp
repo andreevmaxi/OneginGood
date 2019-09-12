@@ -44,8 +44,10 @@ int main()
 
     int CharSize = FileSizeWin(f);
 
-    char* buffer = (char*)calloc ( (CharSize + 1), sizeof(char));
+    char* buffer = (char*)calloc ( (CharSize + 2), sizeof(char));
     ASSERT (buffer != NULL);
+    *buffer = '\0';
+    ++buffer;
 
     FileRead(buffer, f);
 
@@ -131,13 +133,19 @@ bool FileRead(char* buff, FILE* fp)
 
     char* LastChar = buff;
     char tmp = {};
+    char prev = {};
 
     while ( (tmp = getc (fp)) != EOF )
     {
         if(tmp != '\r')
         {
-            *LastChar = tmp;
-            ++LastChar;
+            if (!(tmp == prev && tmp == '\n'))
+            {
+                *LastChar = tmp;
+                prev = tmp;
+                ++LastChar;
+            }
+
         }
     }
     if(*(LastChar - 1) == '\0')
@@ -199,6 +207,23 @@ bool ComparatorStr(const void* str1, const void* str2)
         ++NowPos1;
         ++NowPos2;
     }
+
+    if ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) )
+    {
+        if (*((char*)str1 + NowPos1 + 1) == '\0' && *((char*)str2 + NowPos2 + 1) == '\0')
+        {
+            return NowPos1 < NowPos2;
+        }
+        if (*((char*)str1 + NowPos1 + 1) == '\0')
+        {
+            return 1;
+        }
+        if (*((char*)str2 + NowPos2 + 1) == '\0')
+        {
+            return 0;
+        }
+    }
+
     return *((char*)str1 + NowPos1) < *((char*)str2 + NowPos2);
 }
 
@@ -246,6 +271,23 @@ bool ReverseComparatorStr(const void* str1, const void* str2)
         ++NowPos1;
         ++NowPos2;
     }
+
+    if (  *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) )
+    {
+        if ( (*((char*)str1 - (NowPos1 + 1) ) == '\0') && *((char*)str2 - (NowPos2 + 1) ) == '\0')
+        {
+            return NowPos1 < NowPos2;
+        }
+        if (*((char*)str1 - (NowPos1 + 1) ) == '\0')
+        {
+            return 1;
+        }
+        if (*((char*)str2 - (NowPos2 + 1) ) == '\0')
+        {
+            return 0;
+        }
+    }
+
     return *((char*)str1 - NowPos1) < *((char*)str2 - NowPos2);
 }
 
@@ -300,16 +342,21 @@ int FileSizeWin(FILE* f)
 {
     ASSERT(f != NULL);
 
-    char tmp;
+    char tmp, prev;
     int StrSize = 0;
     tmp = {};
+    prev = {};
 
     tmp = (char)fgetc(f);
     while((tmp != EOF))
     {
         if(tmp != '\r')
         {
-            ++StrSize;
+            if (!(tmp == prev && tmp == '\n'))
+            {
+                ++StrSize;
+                prev = tmp;
+            }
         }
         tmp = (char)fgetc(f);
     }
