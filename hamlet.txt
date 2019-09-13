@@ -1,7 +1,3 @@
-a    
-aaa   
-a  
-
-
-   a
-  a
+aaa
+ccc
+bbb

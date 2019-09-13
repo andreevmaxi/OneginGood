@@ -1,22 +1,16 @@
 Dictionary of english life:
-a  
-a    
-  a
-   a
-aaa   
+aaa
+bbb
+ccc
 
 
 Rap Dictionary:
-a  
-a    
-aaa   
-  a
-   a
+aaa
+bbb
+ccc
 
 
 Original:
-a    
-aaa   
-a  
-   a
-  a
+aaa
+ccc
+bbb
