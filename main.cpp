@@ -1,3 +1,12 @@
+/*!
+* @mainpage
+* This is program that sorts texts
+*/
+
+/*!
+* \file main.cpp
+*/
+
 #include <cstdio>
 #include <cstdlib>
 
@@ -17,25 +26,168 @@
     #define DPRINT if(0) printf
 #endif
 
+/**
+    \brief FileSizeWin
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that finds out a size of windows file without '\r'
+    \return number of chars symbols in file
+    \param[in] f pointer on binar reading file
+*/
+
 int FileSizeWin(FILE* f);
+
+/**
+    \brief FileRead
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that reads symbols of windows file without '\r'
+    \return 1 if everything is good
+    \param[in] fp pointer on binar reading file
+    \param[in,out] buff pointer on first part of memory saved for text
+*/
 
 bool FileRead(char* buff, FILE* fp);
 
-bool StrDivide(char* buff, char** text, char** rtext, int* CharNum, int StrNum);
+/**
+    \brief StrDivide
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that divides buffer array of chars on array of pointer on begin of every string and on array of pointer on end of every string
+    \return 1 if everything is good
+    \param[in] buff pointer on first part of memory saved for text
+    \param[out] text pointer on array of pointers on begin of string
+    \param[out] rtext pointer on array of pointers on end of string
+    \param[in] CharNum pointer on int variable of size of buffer
+    \param[in] StrNum pointer on int variable of number of strings
+*/
+
+bool StrDivide(char* buff, char** text, char** rtext, int* CharNum, int* StrNum);
+
+/**
+    \brief ComparatorStr
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that compares two strings
+    \return 1 if first string is less than second and 0 if second string is less or equal to first
+    \param[in] str1 pointer on first char of comparing first string
+    \param[in] str2 pointer on first char of comparing second string
+*/
 
 bool ComparatorStr(const void* str1, const void* str2);
 
+/**
+    \brief PrintText
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function prints text to file from array of pointers to char
+    \return 1 if everything procided good
+    \param[in] text pointer on array of pointers of chars
+    \param[in] f pointer writing file
+    \param[in] NumStr number of writing strings
+*/
+
 bool PrintText(char** text, FILE* f, int NumStr);
+
+/**
+    \brief SpeedStrSort
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that sorts array of pointers on chars
+    \return 1 if everything procided good
+    \param[in,out] text pointer on array of pointers of chars
+    \param[in] first number of begin index of sorting array
+    \param[in] second number of end index of sorting array
+    \param[in] cmp pointer on comparator function
+*/
 
 bool SpeedStrSort(char** text, int first, int second, bool (*cmp)(const void*, const void*));
 
+/**
+    \brief ReverseComparatorStr
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that compares two strings by the end
+    \return 1 if first string is less than second and 0 if second string is less or equal to first
+    \param[in] str1 pointer on first char of comparing first string
+    \param[in] str2 pointer on first char of comparing second string
+*/
+
 bool ReverseComparatorStr(const void* str1, const void* str2);
+
+/**
+    \brief ReverseStr
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that puts pointers on end of strings in array of pointers
+    \return 1 if everything procided good
+    \param[in] str pointer on end of putting string
+    \param[in,out] rtext pointer on array of pointers of chars
+    \param[in] StrNow index of putting string
+*/
 
 bool ReverseStr(char* str, char** rtext, int StrNow);
 
+/**
+    \brief NormalizeReverseText
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that in array of pointers on end of strings change on pointers of begin of strings
+    \return 1 if everything procided good
+    \param[in,out] text pointer on array of pointers of chars
+    \param[in] first pointer on begin of reserved memory
+    \param[in] StrNum number of strings in text
+*/
+
 bool NormalizeReverseText(char** text, char* first, int StrNum);
 
+/**
+    \brief OriginalPrint
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that prints in file array of chars
+    \return 1 if everything procided good
+    \param[in] buff pointer on first char of saved memory
+    \param[in] f pointer on file that used for print in
+    \param[in] StrNum number of strings in text
+*/
+
 bool OriginalPrint(char* buff, FILE* f, int StrNum);
+
+/**
+    \brief ChangeEnterOnEndOfString
+    \author andreevmaxi
+	\version 1.0
+	\date september 2019 year
+	\copyright korobcom
+    \details This is function that change '\n' on '\0' in buffer and counts number of strings
+    \return 1 if everything procided good
+    \param[in] BuffTmp pointer on first char of saved memory
+    \param[in] StrNum pointer on number of strings in saved memory
+    \param[in] CharSize number on chars in saved memory
+*/
+
+bool ChangeEnterOnEndOfString(char* BuffTmp, int* StrNum, int CharSize);
 
 int main(int argc, char **argv)
 {
@@ -52,30 +204,19 @@ int main(int argc, char **argv)
     FileRead(buffer, f);
 
     int StrNum = 0;
-    char* BuffTmp = buffer;
 
-    for (int i = 0; i < CharSize + 1; ++i)
-    {
-        if(*BuffTmp == '\n')
-        {
-            *BuffTmp = '\0';
-            ++StrNum;
-        }
-        ++BuffTmp;
-    }
-
-    ASSERT(*buffer != '\0');
+    ChangeEnterOnEndOfString(buffer, &StrNum, CharSize);
 
     char* text[StrNum];
     char* rtext[StrNum];
 
-    StrDivide(buffer, text, rtext, &CharSize, StrNum);
+    StrDivide(buffer, text, rtext, &CharSize, &StrNum);
 
     fclose(f);
 
     SpeedStrSort(text, 0, StrNum-1, ComparatorStr);
     SpeedStrSort(rtext, 0, StrNum-1, ReverseComparatorStr);
-    f = fopen("dictionary_of_english_life.txt", "w");
+    f = fopen("dictionary_of_english_life.txt", "w+");
 
     fprintf(f,"Dictionary of english life:\n");
     PrintText(text, f, StrNum);
@@ -134,6 +275,7 @@ bool FileRead(char* buff, FILE* fp)
     char* LastChar = buff;
     char tmp = {};
     char prev = {};
+    prev = '\n';
 
     while ( (tmp = getc (fp)) != EOF )
     {
@@ -160,7 +302,7 @@ bool FileRead(char* buff, FILE* fp)
     return 1;
 }
 
-bool StrDivide(char* buff, char** text, char** rtext, int* CharNum, int StrNum)
+bool StrDivide(char* buff, char** text, char** rtext, int* CharNum, int* StrNum)
 {
     ASSERT (buff != NULL);
     ASSERT (text != NULL);
@@ -169,7 +311,7 @@ bool StrDivide(char* buff, char** text, char** rtext, int* CharNum, int StrNum)
     text[0] = buff;
     for (int i = 1;i < *CharNum; ++i)
     {
-        if( *(buff + i) == '\0' && StrNum > NowStr)
+        if( *(buff + i) == '\0' && *StrNum > NowStr)
         {
             text[NowStr] = buff + i + 1;
             ReverseStr((char*)(buff + i - 1), rtext, (NowStr - 1) );
@@ -178,10 +320,10 @@ bool StrDivide(char* buff, char** text, char** rtext, int* CharNum, int StrNum)
     }
     if (*(buff + *CharNum - 1) != '\0')
     {
-        ReverseStr((char*)(buff + *CharNum - 1), rtext, (StrNum - 1) );
+        ReverseStr((char*)(buff + *CharNum - 1), rtext, (*StrNum - 1) );
     } else
     {
-        ReverseStr((char*)(buff + *CharNum - 2), rtext, (StrNum - 1) );
+        ReverseStr((char*)(buff + *CharNum - 2), rtext, (*StrNum - 1) );
     }
 
     return 1;
@@ -194,13 +336,23 @@ bool ComparatorStr(const void* str1, const void* str2)
 
     int NowPos1 = 0;
     int NowPos2 = 0;
+
+    while(*((char*)str1 + NowPos1 + 1) == ' ')
+    {
+        ++NowPos1;
+    }
+    while(*((char*)str2 + NowPos2 + 1) == ' ')
+    {
+        ++NowPos2;
+    }
+
     while( ( *((char*)str1 + NowPos1) == *((char*)str2 + NowPos2) ) && (*((char*)str1 + NowPos1 + 1) != '\0' && *((char*)str2 + NowPos2 + 1) != '\0') )
     {
-        if(*((char*)str1 + NowPos1 + 1) == ' ')
+        while(*((char*)str1 + NowPos1 + 1) == ' ')
         {
             ++NowPos1;
         }
-        if(*((char*)str2 + NowPos2 + 1) == ' ')
+        while(*((char*)str2 + NowPos2 + 1) == ' ')
         {
             ++NowPos2;
         }
@@ -258,13 +410,26 @@ bool ReverseComparatorStr(const void* str1, const void* str2)
 
     int NowPos1 = 0;
     int NowPos2 = 0;
-    while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) && (*((char*)str1 - (NowPos1 + 1) ) != '\0' && *((char*)str2 - (NowPos2 + 1) ) != '\0') )
+
+    if(( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ))
     {
-        if(*((char*)str1 - (NowPos1 + 1) ) == ' ')
+        while(*((char*)str1 - (NowPos1 + 1) ) == ' ')
         {
             ++NowPos1;
         }
-        if(*((char*)str2 - (NowPos2 + 1) ) == ' ')
+        while(*((char*)str2 - (NowPos2 + 1) ) == ' ')
+        {
+            ++NowPos2;
+        }
+    }
+
+    while( ( *((char*)str1 - NowPos1) == *((char*)str2 - NowPos2) ) && (*((char*)str1 - (NowPos1 + 1) ) != '\0' && *((char*)str2 - (NowPos2 + 1) ) != '\0') )
+    {
+        while(*((char*)str1 - (NowPos1 + 1) ) == ' ')
+        {
+            ++NowPos1;
+        }
+        while(*((char*)str2 - (NowPos2 + 1) ) == ' ')
         {
             ++NowPos2;
         }
@@ -363,4 +528,20 @@ int FileSizeWin(FILE* f)
     rewind(f);
 
     return StrSize;
+}
+
+bool ChangeEnterOnEndOfString(char* BuffTmp, int* StrNum, int CharSize)
+{
+    ASSERT(StrNum != NULL);
+    ASSERT(BuffTmp != NULL);
+
+    for (int i = 0; i < CharSize + 1; ++i)
+    {
+        if(*BuffTmp == '\n')
+        {
+            *BuffTmp = '\0';
+            ++(*StrNum);
+        }
+        ++BuffTmp;
+    }
 }

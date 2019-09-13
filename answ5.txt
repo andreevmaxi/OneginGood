@@ -1,22 +1,28 @@
 Dictionary of english life:
-a  
-a    
+a 
+ a
   a
-   a
-aaa   
+a
+a
+aa
+aaa
 
 
 Rap Dictionary:
-a  
-a    
-aaa   
+a 
+ a
   a
-   a
+a
+a
+aa
+aaa
 
 
 Original:
-a    
-aaa   
-a  
-   a
+a
+ a
   a
+aa
+aaa
+a
+a 
